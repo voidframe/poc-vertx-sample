@@ -71,6 +71,26 @@
       <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
     <plugins>
       <plugin>
+        <groupId>io.reactiverse</groupId>
+        <artifactId>vertx-maven-plugin</artifactId>
+        <version>1.0.18</version>
+        <executions>
+          <execution>
+            <id>vmp</id>
+            <goals>
+              <goal>initialize</goal>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <configuration>
+          <redeploy>true</redeploy>
+          <verticle>${main.verticle}</verticle>
+        </configuration>
+      </plugin>
+
+      <plugin>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-maven-plugin</artifactId>
         <version>${kotlin.version}</version>
